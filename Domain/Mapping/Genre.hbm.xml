@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Domain"
+                   namespace="Domain">
+
+  <class name="Genre" table="genre">
+    <id name="Id" column="id_genre" type="int">
+      <generator class="native"></generator>
+    </id>
+    <property name="NomGenre" column="nom_genre" not-null="true"/>
+
+    <bag name="ListeAlbums" table="album_Genres" cascade="all">
+      <key column="id_genre"/>
+      <many-to-many class="Album" column="id_album"/>
+    </bag>
+
+  </class>
+
+</hibernate-mapping>

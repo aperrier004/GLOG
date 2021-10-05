@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Domain"
+                   namespace="Domain">
+
+  <class name="Album" table="album">
+    <id name="Id" column="id_album" type="int">
+      <generator class="native"></generator>
+    </id>
+    <property name="ImgCouv" column="imgCouv_album" not-null="true"/>
+    <property name="NomAlbum" column="nom_album" not-null="true"/>
+    <property name="Editeur" column="editeur_album" not-null="true"/>
+
+    <bag name="ListeAuteurs" table="album_Auteurs" cascade="all-delete-orphan">
+      <key column="id_album"/>
+      <many-to-many class="Auteur" column="id_auteur"/>
+    </bag>
+
+    <bag name="ListeGenres" table="album_Genres" cascade="all">
+      <key column="id_album"/>
+      <many-to-many class="Genre" column="id_genre"/>
+    </bag>
+
+    <many-to-one name="Serie" class="Serie" column="serie_album"/>
+    <many-to-one name="Categorie" class="Categorie" column="categorie_album"/>
+
+    <bag name="ListeUtilFavoris" table="album_Souhaites" cascade="all">
+      <key column="id_album"/>
+      <many-to-many class="Utilisateur" column="id_util"/>
+    </bag>
+
+    <bag name="ListeUtilAchetes" table="album_Achetes" cascade="all">
+      <key column="id_album"/>
+      <many-to-many class="Utilisateur" column="id_util"/>
+    </bag>
+
+
+
+  </class>
+
+</hibernate-mapping>
