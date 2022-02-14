@@ -5,6 +5,8 @@ Projet réalisé par Coline BINET et Alban PERRIER
 L’objectif de ce projet est la réalisation d’une application de gestion de collection de BD.
 Un rapport lié à ce projet a été rédigé et se situe sur ce dépôt.
 
+[Rapport du projet](https://github.com/aperrier004/GLOG/blob/main/RapportProjet.pdf)
+
 # Notice d'installation
 Pour installer notre application ainsi que sa base de données associées, vous devez   des logiciels suivants (ou leurs équivalents) : 
 Visual Studio 2019
